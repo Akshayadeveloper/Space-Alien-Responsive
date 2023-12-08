@@ -1,0 +1,69 @@
+/* styles.css */
+@import url( 
+"https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); 
+* { 
+	box-sizing: border-box; 
+	margin: 0; 
+	padding: 0; 
+}
+   body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #000;
+            background-image: url('https://source.unsplash.com/1920x1080/?starry-sky');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #clock-container {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            perspective: 1000px;
+        }
+
+        #clock {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateX(20deg) rotateY(30deg);
+            animation: rotateClock 1s linear infinite;
+        }
+
+        .digit {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            line-height: 150px;
+            text-align: center;
+            font-size: 2em;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, violet, black, pink);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            transform-origin: 50% 50% -50px;
+            backface-visibility: hidden;
+        }
+
+        .digit:before {
+            content: "🚀";
+            font-size: 0.6em;
+        }
+
+        .digit:nth-child(even):before {
+            content: "";
+        }
+
+        @keyframes rotateClock {
+            from {
+                transform: rotateX(20deg) rotateY(30deg);
+            }
+            to {
+                transform: rotateX(380deg) rotateY(390deg);
+            }
+        }
+    
